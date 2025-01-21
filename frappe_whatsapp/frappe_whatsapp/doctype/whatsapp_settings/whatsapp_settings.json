@@ -71,8 +71,9 @@
   },
   {
    "default": "FCRM",
-   "fieldname": "Module Def",
+   "fieldname": "module",
    "fieldtype": "Link",
+   "options": "Module Def",
    "label": "Module"
   }
  ],
