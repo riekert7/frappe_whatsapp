@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:phone_id",
+ "autoname": "field:sys_name",
  "creation": "2022-10-27 17:51:09.426813",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -17,6 +17,11 @@
   "webhook_verify_token"
  ],
  "fields": [
+  {
+   "fieldname": "sys_name",
+   "fieldtype": "Data",
+   "label": "System Name (Workaround for Frappe CRM)"
+  },
   {
    "fieldname": "token",
    "fieldtype": "Password",
