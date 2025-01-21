@@ -66,7 +66,8 @@ def post():
 					"message_id": message['id'],
 					"reply_to_message_id": reply_to_message_id,
 					"is_reply": is_reply,
-					"content_type":message_type
+					"content_type": message_type,
+					"phone_id": phone_id
 				}).insert(ignore_permissions=True)
 			elif message_type == 'reaction':
 				frappe.get_doc({
@@ -76,7 +77,8 @@ def post():
 					"message": message['reaction']['emoji'],
 					"reply_to_message_id": message['reaction']['message_id'],
 					"message_id": message['id'],
-					"content_type": "reaction"
+					"content_type": "reaction",
+					"phone_id": phone_id
 				}).insert(ignore_permissions=True)
 			elif message_type == 'interactive':
 				frappe.get_doc({
@@ -85,7 +87,8 @@ def post():
 					"from": message['from'],
 					"message": message['interactive']['nfm_reply']['response_json'],
 					"message_id": message['id'],
-					"content_type": "flow"
+					"content_type": "flow",
+					"phone_id": phone_id
 				}).insert(ignore_permissions=True)
 			elif message_type in ["image", "audio", "video", "document"]:
 				settings = frappe.get_doc(
@@ -122,7 +125,8 @@ def post():
 							"reply_to_message_id": reply_to_message_id,
 							"is_reply": is_reply,
 							"message": message[message_type].get("caption",f"/files/{file_name}"),
-							"content_type" : message_type
+							"content_type": message_type,
+							"phone_id": phone_id
 						}).insert(ignore_permissions=True)
 
 						file = frappe.get_doc(
@@ -148,7 +152,8 @@ def post():
 					"message_id": message['id'],
 					"reply_to_message_id": reply_to_message_id,
 					"is_reply": is_reply,
-					"content_type": message_type
+					"content_type": message_type,
+					"phone_id": phone_id
 				}).insert(ignore_permissions=True)
 			else:
 				frappe.get_doc({
@@ -157,7 +162,8 @@ def post():
 					"from": message['from'],
 					"message_id": message['id'],
 					"message": message[message_type].get(message_type),
-					"content_type" : message_type
+					"content_type" : message_type,
+					"phone_id": phone_id
 				}).insert(ignore_permissions=True)
 
 	else:

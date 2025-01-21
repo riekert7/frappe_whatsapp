@@ -178,9 +178,8 @@
   },
   {
    "fieldname": "phone_id",
-   "fieldtype": "Link",
-   "label": "WABA Phone ID",
-   "options": "WhatsApp Settings"
+   "fieldtype": "Data",
+   "label": "WABA Phone ID"
   }
  ],
  "index_web_pages_for_search": 1,
