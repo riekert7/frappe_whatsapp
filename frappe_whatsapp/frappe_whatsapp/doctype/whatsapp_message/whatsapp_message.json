@@ -175,6 +175,12 @@
    "fieldtype": "Dynamic Link",
    "label": "Reference name",
    "options": "reference_doctype"
+  },
+  {
+   "fieldname": "phone_id",
+   "fieldtype": "Link",
+   "label": "WABA Phone ID",
+   "options": "WhatsApp Settings"
   }
  ],
  "index_web_pages_for_search": 1,

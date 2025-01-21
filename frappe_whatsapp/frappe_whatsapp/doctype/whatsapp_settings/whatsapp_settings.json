@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "field:phone_id",
  "creation": "2022-10-27 17:51:09.426813",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -35,7 +36,9 @@
   {
    "fieldname": "phone_id",
    "fieldtype": "Data",
-   "label": "Phone ID"
+   "label": "Phone ID",
+   "reqd": 1,
+   "unique": 1
   },
   {
    "fieldname": "business_id",
@@ -57,6 +60,12 @@
    "fieldname": "app_id",
    "fieldtype": "Data",
    "label": "App ID"
+  },
+  {
+   "default": "0",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled"
   }
  ],
  "index_web_pages_for_search": 1,

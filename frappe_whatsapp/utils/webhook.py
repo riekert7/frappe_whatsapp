@@ -36,6 +36,16 @@ def post():
 		"meta_data": json.dumps(data)
 	}).insert(ignore_permissions=True)
 
+	# metadata is always logged with messages, status updates and template status changes
+	sys_phone_id = None
+	phone_id = data["entry"][0]["changes"][0]["value"].get("metadata", None).get('phone_number_id')
+	sys_phone_id = frappe.get_list('WhatsApp Settings', filters={'phone_id': phone_id})[0]
+
+	if not sys_phone_id: # webhook not meant for this site
+		return
+	else:
+		phone_id = sys_phone_id
+
 	messages = []
 	try:
 		messages = data["entry"][0]["changes"][0]["value"].get("messages", [])
